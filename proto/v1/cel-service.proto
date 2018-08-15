@@ -6,6 +6,7 @@ option cc_enable_arenas = true;
 option java_multiple_files = true;
 option java_outer_classname = "CelServiceProto";
 option java_package = "com.google.api.expr.v1";
+option go_package = "github.com/google/cel-spec/proto/v1";
 
 import "google/rpc/status.proto";
 import "proto/checked/v1/checked.proto";

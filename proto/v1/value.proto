@@ -9,6 +9,7 @@ import "google/protobuf/struct.proto";
 option java_multiple_files = true;
 option java_outer_classname = "ValueProto";
 option java_package = "com.google.api.expr.v1";
+option go_package = "github.com/google/cel-spec/proto/v1";
 
 option cc_enable_arenas = true;
 
