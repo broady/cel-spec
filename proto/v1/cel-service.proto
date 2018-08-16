@@ -9,7 +9,7 @@ option java_package = "com.google.api.expr.v1";
 option go_package = "github.com/google/cel-spec/proto/v1";
 
 import "google/rpc/status.proto";
-import "proto/checked/v1/checked.proto";
+import "proto/v1/checked.proto";
 import "proto/v1/eval.proto";
 import "proto/v1/syntax.proto";
 
@@ -88,7 +88,7 @@ message CheckRequest {
   // Declarations of types for external variables and functions.
   // Required if program uses external variables or functions
   // not in the default environment.
-  repeated google.api.expr.checked.v1.Decl type_env = 2;
+  repeated google.api.expr.v1.Decl type_env = 2;
   // The protocol buffer context.  See "Name Resolution" in the
   // Language Definition.
   string container = 3;
@@ -101,7 +101,7 @@ message CheckRequest {
 // Response message for the Check method.
 message CheckResponse {
   // The annotated representation, or unset if checking failed.
-  google.api.expr.checked.v1.CheckedExpr checked_expr = 1;
+  google.api.expr.v1.CheckedExpr checked_expr = 1;
   // Any number of issues with [StatusDetails][] as the details.
   repeated google.rpc.Status issues = 2;
 }
@@ -113,7 +113,7 @@ message EvalRequest {
     // Evaluate based on the parsed representation.
     ParsedExpr parsed_expr = 1;
     // Evaluate based on the checked representation.
-    google.api.expr.checked.v1.CheckedExpr checked_expr = 2;
+    google.api.expr.v1.CheckedExpr checked_expr = 2;
   }
   // Bindings for the external variables.  The types SHOULD be compatible
   // with the type environment in [CheckRequest][], if checked.

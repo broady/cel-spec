@@ -1,13 +1,13 @@
 syntax = "proto3";
 
 // Protos for representing CEL declarations and typed checked expressions.
-package google.api.expr.checked.v1;
+package google.api.expr.v1;
 
 option cc_enable_arenas = true;
 option java_multiple_files = true;
 option java_outer_classname = "CheckedProto";
 option java_package = "com.google.api.expr.checked.v1";
-option go_package = "github.com/google/cel-spec/proto/checked/v1";
+option go_package = "github.com/google/cel-spec/proto/v1";
 
 import "proto/v1/syntax.proto";
 import "google/protobuf/empty.proto";

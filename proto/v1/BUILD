@@ -56,7 +56,7 @@ proto_library(
         ":eval_protos",
         ":syntax_protos",
         ":value_protos",
-        "//proto/checked/v1:checked_protos",
+        ":checked_protos",
         "@com_google_googleapis//:rpc_status",
     ],
 )
@@ -70,7 +70,7 @@ go_proto_library(
         ":eval_go_proto",
         ":syntax_go_proto",
         ":value_go_proto",
-        "//proto/checked/v1:checked_go_proto",
+        ":checked_go_proto",
         "@com_google_googleapis//:rpc_status_go_proto",
     ],
 )
@@ -140,4 +140,39 @@ java_proto_library(
 java_lite_proto_library(
     name = "syntax_java_proto_lite",
     deps = [":syntax_protos"],
+)
+
+proto_library(
+    name = "checked_protos",
+    srcs = [
+        "checked.proto",
+    ],
+    # cc_api_version = 2,
+    # java_api_version = 2,
+    # js_api_version = 2,
+    deps = [
+        "//proto/v1:syntax_protos",
+        "@com_google_protobuf//:any_proto",
+        "@com_google_protobuf//:empty_proto",
+        "@com_google_protobuf//:struct_proto",
+    ],
+)
+
+go_proto_library(
+    name = "checked_go_proto",
+    importpath = "github.com/google/cel-spec/proto/v1/checked",
+    proto = ":checked_protos",
+    deps = [
+        "//proto/v1:syntax_go_proto",
+    ],
+)
+
+java_proto_library(
+    name = "checked_java_proto",
+    deps = [":checked_protos"],
+)
+
+java_lite_proto_library(
+    name = "checked_java_proto_lite",
+    deps = [":checked_protos"],
 )
